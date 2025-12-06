@@ -35,6 +35,7 @@
     ```bash
     bash -c "$(curl -fsSL  https://raw.githubusercontent.com/Dr1xam/PADBS/refs/heads/main/download.sh)"
     ```
+<img width="1386" height="224" alt="Знімок екрана з 2025-12-06 12-34-38" src="https://github.com/user-attachments/assets/94871c42-7e5e-4440-ac76-5a500f5740ad" />
 
     **Що відбудеться автоматично:**
     1.  Встановлення `aria2` (якщо відсутня) для швидкого завантаження.
@@ -65,34 +66,50 @@
     -   Підіймає тимчасовий Python HTTP-сервер на хості (порт 8888).
     -   Змушує VM завантажити та виконати скрипт інсталяції через `qm guest exec`.
     -   Встановлює `snapd` та `rocketchat-server`.
+<img width="1384" height="746" alt="Знімок екрана з 2025-12-06 12-43-29" src="https://github.com/user-attachments/assets/2cc30a73-8818-432d-afce-66c93e047d4d" />
 
 ### 4. Перевірка результату розгортання
 -   **Перегляд ip адреси:** Потрібно зайти в термінал машини під назвою rocketchat і вести команду:
 ```bash
   ip a
-  #Отримаємо приблизно такий вивід
-  1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host noprefixroute 
-       valid_lft forever preferred_lft forever
-  2: "ens18": <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    link/ether bc:24:11:4e:a2:5c brd ff:ff:ff:ff:ff:ff
-    inet "192.168.1.50"/24 brd 192.168.1.255 scope global ens18
-       valid_lft forever preferred_lft forever
-    inet6 fe80::be24:11ff:fe4e:a25c/64 scope link 
-       valid_lft forever preferred_lft forever
 ```
-   Вище у виводі кольром та кавичками відмічено де шукати ip адресу нашої машини
+<img width="1864" height="812" alt="Знімок екрана з 2025-12-06 12-43-42" src="https://github.com/user-attachments/assets/ee280927-94d0-471b-86e9-2203b5d0e531" />
+
+тепер перейдіть в її консоль  `>_ Console`
+
+<img width="1870" height="846" alt="Знімок екрана з 2025-12-06 13-22-33" src="https://github.com/user-attachments/assets/ad824c9b-b7bc-499c-a035-8b7375b7400a" />
+
+якщо машина досі щось виводить то натисніть `Enter` Після цього введіть логін та пароль
+<img width="1170" height="31" alt="зображення" src="https://github.com/user-attachments/assets/591a0fd1-1306-4e02-ad83-e173b29f6c5b" />
+
+```
+login: sw
+password: sw
+```
+
+<img width="1244" height="453" alt="Знімок екрана з 2025-12-06 12-47-29" src="https://github.com/user-attachments/assets/3a83da09-5bec-4035-94ec-078d9b6fc801" />
+
+Водимо команду
+```bash
+  ip a
+```
+отримаємо приблизно такий вивід
+<img width="1233" height="237" alt="Знімок екрана з 2025-12-06 12-47-40" src="https://github.com/user-attachments/assets/64c98586-7f73-4fbb-bb8c-2aafac9ab6f8" />
+
+
+
+   Вище на скриншоті кольром відмічено де шукати ip адресу нашої машини
 -   **Вхід у рокетчат:** Відкрийте нову вкладку та впишіть посилання 
 ```url
     ip(машини):3000 
     #наприклад 
     192.168.1.50:3000
 ```
-  Після цього вас має перекинути на веб сторінку рокетчату
+<img width="1919" height="42" alt="Знімок екрана з 2025-12-06 13-02-43" src="https://github.com/user-attachments/assets/8b6a1df6-2883-4603-a679-ad6028931c77" />
+
+  Після цього вас має завантажитися веб сторінка рокетчату
     
+<img width="1918" height="1159" alt="Знімок екрана з 2025-12-06 12-49-01" src="https://github.com/user-attachments/assets/8a2b1396-01d6-4c30-9a28-d570ad4ae6d5" />
 
 ## Моніторинг та Логи
 
