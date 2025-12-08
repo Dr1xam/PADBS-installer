@@ -68,7 +68,7 @@ fi
 
 echo "Запускаю VM $ROCKETCHAT_VM_ID (rocketchat)"
 qm set "$ROCKETCHAT_VM_ID" --agent 1 > /dev/null 2>&1 
-qm start "$ROCKETCHAT_VM_ID"
+qm start "$ROCKETCHAT_VM_ID" > /dev/null 2>&1 
 
 echo -n "Очікую повної готовності VM $ROCKETCHAT_VM_ID (rocketchat)"
 
