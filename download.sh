@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Посилання 
-URL_SRC="https://github.com/Dr1xam/deployment-tool/releases/download/v0.2/src.tar.gz"
-URL_PARTS="https://github.com/Dr1xam/deployment-tool/releases/download/v0.2/"
-URL_ROCKETCHAT="https://github.com/Dr1xam/deployment-tool/releases/download/v0.2/Rocketchat.tar.gz"
+URL_SRC="https://github.com/Dr1xam/PADBS/releases/download/v1.0.0-legacy/src.tar.gz"
+URL_PARTS="https://github.com/Dr1xam/PADBS/releases/download/v1.0.0-legacy/"
+URL_ROCKETCHAT="https://github.com/Dr1xam/PADBS/releases/download/v1.0.0-legacy/Rocketchat.tar.gz"
 
 # Шлях до фінального файлу бекапу
 FINAL_FILE_NAME="vzdump-qemu-815898734-2025_11_24-17_42_12.vma.zst"
