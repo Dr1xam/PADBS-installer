@@ -33,7 +33,7 @@
 
 2.  **Запустіть процес інсталяції:**
     ```bash
-    bash -c "$(curl -fsSL  https://raw.githubusercontent.com/Dr1xam/PADBS/refs/heads/main/download.sh)"
+    bash -c "$(curl -fsSL  https://github.com/Dr1xam/PADBS/releases/download/v1.0.0-legacy/download.sh)"
     ```
 <img width="1386" height="224" alt="Знімок екрана з 2025-12-06 12-34-38" src="https://github.com/user-attachments/assets/94871c42-7e5e-4440-ac76-5a500f5740ad" />
 
