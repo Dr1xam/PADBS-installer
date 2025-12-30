@@ -9,20 +9,25 @@ class RocketChatParser(SnapBaseParser):
         results = []
         seen = set()
 
+        # Отримуємо карту каналів з API
         channels = data.get("channel-map", [])
 
         for item in channels:
             channel_info = item.get("channel", {})
-            track = channel_info.get("track")  # напр. "6.x"
             risk = channel_info.get("risk")    # напр. "stable"
+            
+            # Витягуємо реальну версію та посилання
+            version = item.get("version")
+            download_url = item.get("download", {}).get("url")
 
-            if risk == "stable":
-                #  f"{track} /{risk}" -> "6.x /stable" (два слова через пробіл)
-                
-                ver_string = f"{track} {track}/{risk}"
+            # Фільтруємо лише стабільні релізи
+            if risk == "stable" and version and download_url:
+                # Формуємо рядок: "ВЕРСІЯ ПОСИЛАННЯ"
+                ver_string = f"{version} {download_url}"
 
                 if ver_string not in seen:
                     results.append(ver_string)
                     seen.add(ver_string)
 
+        # Сортуємо за версією у зворотному порядку
         return sorted(results, reverse=True)
