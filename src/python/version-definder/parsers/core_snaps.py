@@ -56,6 +56,6 @@ class CoreSnapsParser(SnapBaseParser):
                 
                 # Формуємо рядок: "НАЗВА ВЕРСІЯ ЛІНК"
                 # Наприклад: core22 20240115 https://...
-                results.append(f"{core_name} {latest['version']} {latest['url']}")
+                results.append(f"{core_name} {latest['url']}")
 
         return results
