@@ -14,20 +14,20 @@ class RocketChatParser(SnapBaseParser):
 
         for item in channels:
             channel_info = item.get("channel", {})
-            risk = channel_info.get("risk")    # напр. "stable"
+            risk = channel_info.get("risk")    
+            # --- ДОДАНО ПЕРЕВІРКУ АРХІТЕКТУРИ ---
+            arch = channel_info.get("architecture") 
             
-            # Витягуємо реальну версію та посилання
             version = item.get("version")
             download_url = item.get("download", {}).get("url")
 
-            # Фільтруємо лише стабільні релізи
-            if risk == "stable" and version and download_url:
-                # Формуємо рядок: "ВЕРСІЯ ПОСИЛАННЯ"
+            # Фільтруємо: ТІЛЬКИ стабільні та ТІЛЬКИ для стандартних ПК/серверів (amd64)
+            if risk == "stable" and arch == "amd64" and version and download_url:
                 ver_string = f"{version} {download_url}"
 
                 if ver_string not in seen:
                     results.append(ver_string)
                     seen.add(ver_string)
 
-        # Сортуємо за версією у зворотному порядку
-        return sorted(results, reverse=True)
+        # Сортуємо результати (найновіші версії будуть зверху)
+        return sorted(results, key=lambda x: x.split()[0], reverse=True)
